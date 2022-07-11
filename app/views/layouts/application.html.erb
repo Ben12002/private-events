@@ -12,12 +12,34 @@
 
   <body>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
 
     <% flash.each do |name, message| %>
       <div class="<%= name %>"><%= message %></div>
     <% end %>
+
+    <div class="navbar">
+      <%= link_to "Private Events", root_path %>
+      <div class="right">
+        <% if user_signed_in? %>
+          <%= link_to current_user.username, current_user %>
+
+          <%= button_to destroy_user_session_path do %>
+            <p>Log Out </p>
+          <% end %>
+        <% else %>
+          <%= button_to new_user_session_path do %>
+            <p>Log In </p>
+          <% end %>
+
+          <%= button_to new_user_registration_path do %>
+            <p>Sign Up </p>
+          <% end %>
+        <% end %>
+      
+      </div>
+    </div>
     
     <%= yield %>
   </body>

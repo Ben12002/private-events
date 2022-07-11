@@ -1,0 +1,28 @@
+<div class="show">
+    <h1>Events you created:</h1>
+    <% current_user.created_events.each do |event|  %>
+        <div class="event-card">
+            <p><%= event.name %></p>
+            <p><%= event.venue %></p>
+            <p><%= event.date %></p>
+        </div>
+    <% end %>
+
+    <h1>Events you will attend:</h1>
+    <% current_user.attended_events.where("date >= ?", Date.today).each do |event|  %>
+        <div class="event-card">
+            <p><%= event.name %></p>
+            <p><%= event.venue %></p>
+            <p><%= event.date %></p>
+        </div>
+    <% end %>
+
+     <h1>Events you attended:</h1>
+    <% current_user.attended_events.where("date < ?", Date.today).each do |event|  %>
+        <div class="event-card">
+            <p><%= event.name %></p>
+            <p><%= event.venue %></p>
+            <p><%= event.date %></p>
+        </div>
+    <% end %>
+</div>

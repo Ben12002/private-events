@@ -3,3 +3,10 @@
     <p><%= @event.venue %></p>
     <p><%= @event.date %></p>
 </div>
+
+<h1> Attendees </h1>
+<hr>
+
+<% @event.attendees.each do |attendee| %>
+    <p> <%= attendee.username %> </p>
+<% end%>
