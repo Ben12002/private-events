@@ -13,3 +13,55 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
+
+ body {
+    background-color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #292929;
+ }
+
+
+ a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+ .new-event, .event-card {
+    width: max-content;           
+
+    border-radius: 13px;
+    background: #e0e0e0;
+    box-shadow:  5px 5px 11px #d3d3d3,
+                -5px -5px 11px #ededed;
+ }
+
+ .new-event {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 25px; 
+ }
+
+.event-card {
+    font-weight: 100;
+    color: #474747;
+    margin: 50px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.new-event:hover {
+    border-radius: 13px;
+    background: #d4d4d4;
+    box-shadow:  5px 5px 11px #c7c7c7,
+                 -5px -5px 11px #e1e1e1;
+}
+
+.event-card > p > span {
+    font-weight: bold;
+}

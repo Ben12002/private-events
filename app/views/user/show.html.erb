@@ -1,0 +1,8 @@
+<h1>The events you created:</h1>
+<% current_user.created_events.each |event| do %>
+    <div class="event-card">
+        <p><%= event.name %></p>
+        <p><%= event.venue %></p>
+        <p><%= event.date %></p>
+    </div>
+<% end %>

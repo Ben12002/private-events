@@ -1,1 +1,31 @@
 <h1>Home</h1>
+
+<% if user_signed_in? %>
+    <%= link_to new_event_path do%>
+        <div class="new-event"> 
+            <span>New Event</span>
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+            </svg>
+        </div>
+    <% end %>
+<% else %>
+    <div class="new-event">
+        <p> Log in to create an event. </p>
+    </div>
+<% end %>
+
+<h2>Events:</h2>
+<% @events.each do |event| %>
+    <div class="event-card">
+        <p><%= event.name %></p>
+        <p><span>venue:</span> <%= event.venue %></p>
+        <p><span>date:</span> <%= event.date %></p>
+
+        <% if user_signed_in? %>
+            <%= button_to "Join", attendee_events_path(attendee_id: current_user.id, event_attended_id: event.id) %>
+        <% else %>
+            <div>log in to join an event.</div>
+        <% end %>
+    </div>
+<% end %>
